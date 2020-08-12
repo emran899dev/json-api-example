@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Data POST</title>
+</head>
+
+<body>
+    <h2>JavaScript Object Notation</h2>
+
+    <!-- Create POST -->
+    <input type="text" name="" id="title" placeholder="title">
+    <br>
+    <input type="text" name="" id="bodyContent" placeholder="post data..">
+    <br>
+    <input type="button" value="Submit" id="submit">
+
+    <!-- JSON Server Data -->
+    <script>
+
+document.getElementById('submit').addEventListener("click",function(){
+      const title = document.getElementById('title').value
+      const bodyContent = document.getElementById('bodyContent').value
+      const post = {title: title, body: bodyContent}
+      nowPostToServer(post)
+
+})
+
+        // const post = { title: 'foo', body: 'bar', userId: 1 }
+
+        function nowPostToServer(postInfo) {
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: JSON.stringify(postInfo),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+
+                .then(response => response.json())
+                .then(data => console.log(data))
+
+        }
+
+    </script>
+
+</body>
+
+</html>

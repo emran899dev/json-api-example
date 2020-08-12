@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+
+<body>
+    <h2>JavaScript Object Notation</h2>
+
+    <!-- Local JSON Create --> -->
+     <script>
+        const person = {
+            name: 'Emran',
+            age: 19,
+            personGf:{
+                name: '....',
+                favFlowers: 'Rose'
+            },
+            friendAge: [12,15,19],
+            friendName: ['Emon','Santho','Nascer'],
+
+        }
+
+        const personJson = JSON.stringify(person)
+        console.log(personJson);
+        const personFromJson = JSON.parse(personJson)
+        console.log(personFromJson);
+    </script>
+
+
+</body>
+
+</html>
